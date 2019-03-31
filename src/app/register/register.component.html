@@ -7,7 +7,7 @@
   </div>
   <form [formGroup]="form" novalidate>
     <div class="row">
-      <div class="col col-lg-6 col-md-6">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="form-group">
           <label for="name">Nombre</label>
           <input
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div class="col col-lg-6 col-md-6">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="form-group">
           <label for="phone">Teléfono</label>
           <input type="text" class="form-control" id="phone" placeholder="+56999999999" name="phone" formControlName="phone"
@@ -71,26 +71,28 @@
 <div class="container users" *ngIf="users.length > 0">
   <div class="row">
     <div class="col">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Rut</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users; let i = index">
-            <th scope="row">{{ (i+1) }}</th>
-            <td>{{ user.name}}</td>
-            <td>{{ user.email}}</td>
-            <td>{{ user.phone}}</td>
-            <td>{{ user.rut}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Rut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index">
+              <th scope="row">{{ (i+1) }}</th>
+              <td>{{ user.name}}</td>
+              <td>{{ user.email}}</td>
+              <td>{{ user.phone}}</td>
+              <td>{{ user.rut}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
