@@ -9,7 +9,7 @@ html, body{
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: url('assets/background-phone.jpg') center/cover;
+  background: url('https://firebasestorage.googleapis.com/v0/b/test-ia-chile.appspot.com/o/background-phone.jpg?alt=media&token=4398dbe1-290b-4e9a-87d3-c6cd046c15dd') center/cover;
 }
 .gcontent{
   flex: 1 0 auto;
