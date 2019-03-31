@@ -1,3 +1,96 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="title">Cursos de Verano Pro</h1>
+      <h2 class="subtitle">No dejes pasar esta increíble oportunidad inscribete acá</h2>
+    </div>
+  </div>
+  <form [formGroup]="form" novalidate>
+    <div class="row">
+      <div class="col col-lg-6 col-md-6">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="ej. Jose Conseco"
+          name="name"
+          formControlName="name"
+          #name>
+          <small *ngIf="form.controls.name.errors && form.controls.name.dirty" class="error">
+            *Requerido
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo</label>
+          <input
+          type="text"
+          class="form-control"
+          id="email"
+          placeholder="example@correo.com"
+          name="email"
+          formControlName="email"
+          #email>
+          <small *ngIf="form.controls.email.errors && form.controls.email.dirty" class="error">
+            <span *ngIf="form.controls.email.errors.required">*Requerido</span>
+            <span *ngIf="form.controls.email.errors.email">Ingrese un email válido</span>
+          </small>
+        </div>
+      </div>
+
+      <div class="col col-lg-6 col-md-6">
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="text" class="form-control" id="phone" placeholder="+56999999999" name="phone" formControlName="phone"
+            #phone>
+          <small *ngIf="form.controls.phone.errors && form.controls.phone.dirty" class="error">
+            <span *ngIf="form.controls.phone.errors.required">*Requerido</span>
+            <span *ngIf="form.controls.phone.errors.minlength">Mínimo 9 caracteres</span>
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Rut</label>
+          <input type="text" class="form-control" id="rut" placeholder="ej. 26578493-3" name="rut" formControlName="rut" #rut>
+          <small *ngIf="form.controls.rut.errors && form.controls.rut.dirty" class="error">
+            *Requerido
+          </small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-success btn-lg btn-block" (click)="save()" [disabled]="!form.valid">Inscribirse</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container users" *ngIf="users.length > 0">
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Rut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <th scope="row">{{ (i+1) }}</th>
+            <td>{{ user.name}}</td>
+            <td>{{ user.email}}</td>
+            <td>{{ user.phone}}</td>
+            <td>{{ user.rut}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
